@@ -15,14 +15,14 @@ export default function Router() {
         //   { path: 'config', element: <ConfigPage /> },
       ],
     },
-    {
+    /*{
       path: 'login',
       element: <Login />,
-    },
-    {
+    },*/
+    /*{
       path: 'register',
       element: <Register />,
-    },
+    },*/
     {
       element: <SimpleLayout />,
       children: [

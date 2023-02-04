@@ -36,11 +36,11 @@ const menuOptions = [
     path: "/settings",
     icon: icon("gear", "solid"),
   },
-  {
+/*  {
     title: "account",
     path: "/account",
     icon: icon("user"),
-  },
+  },*/
 ];
 
 export { menuData, menuOptions };

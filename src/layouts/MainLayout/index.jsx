@@ -6,9 +6,9 @@ import Navbar from "./Navbar";
 
 export default function MainLayout() {
   const location = useLocation();
-  if (!localStorage.getItem("user")) {
+  /*if (!localStorage.getItem("user")) {
     return <Navigate to="/login" state={{ from: location }} replace />;
-  }
+  }*/
   return (
     <div className="mainLayout">
       <Navbar />
