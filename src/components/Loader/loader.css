@@ -1,0 +1,26 @@
+.loader {
+  display: inline-block;
+  border: 8px solid var(--containers);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: rot5 1s infinite;
+}
+
+@keyframes rot5 {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    border-top-color: var(--containers);
+    border-bottom-color: var(--text-2);
+    border-right-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

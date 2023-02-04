@@ -1,0 +1,355 @@
+.player_card {
+  position: relative;
+  background: var(--containers);
+  height: calc(90% - 2.5rem);
+  width: calc(100% - 2.5rem);
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  min-width: 15.625rem;
+}
+
+.player_card-error {
+  position: relative;
+  background: var(--containers);
+  height: calc(90% - 2.5rem);
+  width: calc(100% - 2.5rem);
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  font-size: 1.5rem;
+  color: var(--text-1);
+  gap: 1.25rem;
+}
+
+.player_card_loading {
+  position: relative;
+  background: var(--containers);
+  height: calc(90% - 2.5rem);
+  width: calc(100% - 2.5rem);
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.card_loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    var(--background) 30%,
+    var(--containers) 38%,
+    var(--containers) 40%,
+    var(--background) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  border-radius: 1.25rem;
+  animation: load89234 2s infinite;
+  z-index: 5;
+}
+
+@keyframes load89234 {
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.player_card_cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25rem 1.25rem 0 0;
+  z-index: 0;
+}
+
+.player_card_cover-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25rem 1.25rem 0 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    120deg,
+    var(--containers) 30%,
+    var(--background) 38%,
+    var(--background) 40%,
+    var(--containers) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+.gausiano {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--other), 0, 0);
+  backdrop-filter: blur(0.1875rem);
+  -webkit-backdrop-filter: blur(0.1875rem);
+  z-index: 1;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.player_card_cover img {
+  border-radius: 1.25rem 1.25rem 0 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  object-fit: cover;
+}
+
+.player_card_content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 3;
+  gap: 0;
+  width: calc(100% - 2.5rem);
+  height: calc(100% - 1.25rem);
+  padding: 0 1.25rem;
+}
+
+/* .player_card_image {
+  width: 128px;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--text-1);
+  margin-bottom: 10%;
+} */
+
+.player_card_image {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  gap: clamp(1rem, 10vw, 0.5rem);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: clamp(1.25rem, 8vw, 2rem);
+}
+
+.player_card_image img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--text-1);
+  margin-bottom: clamp(1.25rem, 8vw, 2.5rem);
+}
+
+.player_card_image-loading img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  visibility: hidden;
+
+  background: linear-gradient(
+    120deg,
+    var(--containers) 30%,
+    var(--background) 38%,
+    var(--background) 40%,
+    var(--containers) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+
+  margin-bottom: clamp(1.25rem, 8vw, 3rem);
+}
+
+.player_card_info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.player_card_name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.player_card_rank {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 0.625rem;
+}
+
+.player_card_rank-loading {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  gap: 0.625rem;
+  border-radius: 1.25rem;
+
+  background: linear-gradient(
+    120deg,
+    var(--containers) 30%,
+    var(--background) 38%,
+    var(--background) 40%,
+    var(--containers) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.player_card_rank_icon {
+  width: 20%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_card_rank_icon img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.player_card_rank_info {
+  width: 70%;
+  display: flex;
+  gap: 0.3125rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 0 0.625rem 0;
+}
+
+.player_card_rank_name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+.player_card_rank_winrate {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.player_card_rank_winrate span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.player_card_rank_mmr {
+  width: 100%;
+  gap: 0.625rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mmr_progress {
+  position: relative;
+  width: 85%;
+}
+
+.mmr_progress_bar {
+  position: absolute;
+  height: 0.625rem;
+  background: var(--text-1);
+  border-radius: 0.625rem;
+  transition: 1s ease-in-out;
+}
+
+.mmr_progress_bar_bg {
+  width: 100%;
+  height: 0.625rem;
+  background: var(--text-2);
+  border-radius: 0.625rem;
+  transition: 0.5s ease-in-out;
+}
+
+.mmr_number {
+  width: 15%;
+  color: var(--text-1);
+}
+
+.player_card_info hr {
+  width: 100%;
+  border: solid 0.0625rem rgba(0, 0, 0, 0.2);
+}
+
+.updateData {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.625rem;
+  background: var(--hover-icon-button);
+  width: 25px;
+  height: 25px;
+  z-index: 5;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  color: var(--text-1);
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.updateData:hover {
+  opacity: 1;
+}
+
+.card_and_searchbar {
+  width: 30%;
+  min-width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
