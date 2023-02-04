@@ -8,7 +8,7 @@ const menuData = [
     path: "/",
     icon: icon("home", "solid"),
   },
-  {
+/*{
     title: "updates",
     path: "/updates",
     icon: icon("newspaper"),
@@ -27,7 +27,7 @@ const menuData = [
     title: "tournaments",
     path: "/tournaments",
     icon: icon("trophy"),
-  },
+  }, */
 ];
 
 const menuOptions = [
