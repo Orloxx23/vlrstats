@@ -45,7 +45,7 @@ export default function PlayerHistory({ refresh }) {
   };
 
   const getHistoryUnrated = async (player) => {
-    if(!player) return;
+    if (!player) return;
     if (!playerData) return;
     if (loading) return;
     setError(false);
@@ -66,7 +66,7 @@ export default function PlayerHistory({ refresh }) {
   };
 
   const getHistoryCompetitive = async (player) => {
-    if(!player) return;
+    if (!player) return;
     if (!playerData) return;
     if (loading) return;
     setError(false);
