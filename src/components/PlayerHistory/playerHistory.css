@@ -89,6 +89,10 @@
   cursor: pointer;
 }
 
+.history_item:nth-last-child(1){
+  border-bottom: none;
+}
+
 .history_item:hover {
   background: var(--hover-icon-button);
   border-radius: 20px;
