@@ -15,7 +15,7 @@ function ThemeProvider(props) {
     if (localStorage.getItem("theme")) {
       changeTheme(localStorage.getItem("theme"));
     } else {
-      localStorage.setItem("theme", "default");
+      setDefault();
     }
   }, []);
 
@@ -30,7 +30,7 @@ function ThemeProvider(props) {
       case "jett":
         setJett();
         break;
-        case "plainNight":
+      case "plainNight":
         setPlainNight();
         break;
       default:
