@@ -11,12 +11,13 @@ export default function Searchbar({ setSearch, setSearching }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (name === "" || tag === "" || !name || !tag) return;
 
     const data = {
-        name: name,
-        tag: tag,
-        region: 'na'
-    }
+      name: name,
+      tag: tag,
+      region: "na",
+    };
 
     setSearch(data);
     setSearching(true);
