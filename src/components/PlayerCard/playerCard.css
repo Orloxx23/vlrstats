@@ -169,7 +169,6 @@
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid var(--text-1);
-  margin-bottom: clamp(1.25rem, 8vw, 2.5rem);
 }
 
 .player_card_image-loading img {
@@ -205,6 +204,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-1);
+  margin-bottom: 1rem;
 }
 
 .player_card_rank {
@@ -352,4 +352,24 @@ img {
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+@media screen and (max-width: 968px) {
+  .card_and_searchbar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .player_card {
+    width: 100%;
+    min-height: 500px;
+    padding: 0;
+  }
+
+  .player_card_image img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+  }
 }

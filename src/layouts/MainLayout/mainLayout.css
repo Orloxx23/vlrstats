@@ -9,5 +9,17 @@
 
 .layoutContent {
   width: 100%;
-  height: calc(100vh - 80px);   
+  height: calc(100vh - 80px);
+}
+
+@media screen and (max-width: 968px) {
+  .mainLayout {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .layoutContent {
+    width: 100%;
+    height: calc(100vh - 80px);
+  }
 }

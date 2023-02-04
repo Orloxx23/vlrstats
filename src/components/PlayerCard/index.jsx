@@ -75,7 +75,9 @@ export default function PlayerCard({ action }) {
     if (!playerData) return;
     await axios
       .get(
-        `${baseApi}/valorant/v1/mmr/${playerData?.region || 'na'}/${playerData?.name}/${playerData?.tag}`
+        `${baseApi}/valorant/v1/mmr/${playerData?.region || "na"}/${
+          playerData?.name
+        }/${playerData?.tag}`
       )
       .then((res) => {
         data = {
@@ -130,21 +132,11 @@ export default function PlayerCard({ action }) {
                 }
               >
                 <img src={playerData.image} alt="" draggable="false" />
-                <div
-                  className={
-                    loading ? "player_card_name-loading" : "player_card_name"
-                  }
-                >
+                
+              </div>
+              <div className="player_card_name">
                   {loading ? "" : playerData?.name + "#" + playerData?.tag}
                 </div>
-              </div>
-              {/* <div
-                className={
-                  loading ? "player_card_name-loading" : "player_card_name"
-                }
-              >
-                {loading ? "" : playerData?.name + "#" + playerData?.tag}
-              </div> */}
               <div className="player_card_info">
                 <div
                   className={

@@ -189,15 +189,15 @@
   font-weight: 700;
 }
 
-.match_more_info_timeago{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: var(--text-1);
+.match_more_info_timeago {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--text-1);
 }
 
-.error_history{
+.error_history {
   width: 100%;
   height: 100%;
   display: flex;
@@ -206,13 +206,74 @@
   align-items: center;
 }
 
-.error_history img{
+.error_history img {
   width: 30%;
 }
 
-.error_history p{
+.error_history p {
   color: var(--text-1);
   font-size: 1.2rem;
   font-weight: 700;
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 968px) {
+  .history_filter {
+    width: 100%;
+    min-height: 10vh;
+  }
+  .player_history {
+    margin-bottom: 20px;
+    min-height: 65vh;
+  }
+
+  .match_agent {
+    width: calc(256px / 5);
+    height: calc(256px / 5);
+    background: var(--other);
+    border-radius: 20px;
+  }
+
+  .match_result p:nth-last-child(1) {
+    font-size: 0.8rem;
+  }
+
+  .match_more_info_kda div:nth-child(1) {
+    font-size: 0.8rem;
+  }
+
+  .match_more_info_kda div:nth-child(2) {
+    font-size: 0.8rem;
+  }
+
+  .kda_diff {
+    font-size: 0.8rem;
+  }
+
+  .match_more_info_timeago {
+    font-size: 0.8rem;
+  }
+
+  .history_item {
+    width: calc(100% - 0px);
+    height: calc(126px - 0px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px;
+  }
+
+  .match_result_title {
+    font-size: 1rem;
+  }
+
+  .match_more_info_match div:nth-child(1) {
+    font-size: 1rem;
+  }
+
+  .match_more_info_match div:nth-child(2) {
+    font-size: 0.8rem;
+  }
+
+  .history_item:hover {
+    background: var(--containers);
+  }
 }

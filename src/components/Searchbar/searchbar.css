@@ -43,10 +43,18 @@
   font-weight: 700;
 }
 
-.player_searchbar_name::placeholder, .player_searchbar_tag::placeholder{
-    color: var(--hover-icon-button);
+.player_searchbar_name::placeholder,
+.player_searchbar_tag::placeholder {
+  color: var(--hover-icon-button);
 }
 
 .player_searchbar_submit {
   display: none;
+}
+
+@media screen and (max-width: 968px) {
+  .player_searchbar {
+    width: 100%;
+    min-height: 10vh;
+  }
 }

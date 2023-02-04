@@ -40,3 +40,31 @@
   color: var(--text-1);
   background: var(--hover-icon-button);
 }
+
+@media screen and (max-width: 968px) {
+  .navbar {
+    max-width: 100%;
+    min-height: 8vh;
+    max-height: 80px;
+    flex-direction: row;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar__menu {
+    flex-direction: row;
+  }
+
+  .navbar__menu__item {
+    font-size: 150%;
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar__user {
+    display: flex;
+    flex-direction: row;
+  }
+}
