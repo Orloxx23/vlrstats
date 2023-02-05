@@ -154,10 +154,10 @@ export default function PlayerCard({ action }) {
                     <div className="player_card_rank_name">
                       {playerData?.rank}
                     </div>
-                    <div className="player_card_rank_winrate">
+                    {/* <div className="player_card_rank_winrate">
                       {"18W 11L "}
                       <span>62%</span>
-                    </div>
+                    </div> */}
                     <div className="player_card_rank_mmr">
                       <div className="mmr_progress">
                         <div
