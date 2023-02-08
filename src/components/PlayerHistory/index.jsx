@@ -8,6 +8,7 @@ import Loader from "../Loader";
 import "./playerHistory.css";
 import moment from "moment/moment";
 import { images404, randomImg } from "../randomImg";
+import MatchDetails from "../MatchDetails";
 
 const errorImage = randomImg(images404);
 
@@ -20,6 +21,8 @@ export default function PlayerHistory({ refresh }) {
   const [playerData, setPlayerData] = React.useState(
     JSON.parse(localStorage.getItem("playerData")) || null
   );
+  const [match, setMatch] = React.useState(null);
+  const [result, setResult] = React.useState(null);
 
   const changeGamemode = (e) => {
     setFilter(e.target.value);
@@ -103,6 +106,10 @@ export default function PlayerHistory({ refresh }) {
     }
   };
 
+  const reset = () => {
+    setMatch(null);
+  };
+
   // useEffect(() => {
   //   getHistory();
   // }, []);
@@ -133,20 +140,28 @@ export default function PlayerHistory({ refresh }) {
               selected={filter}
               loading={loading}
               setFilter={changeGamemode}
+              onChange={() => setMatch(null)}
             />
           ))}
         </div>
         <div className="player_history">
+          {match && (
+            <MatchDetails match={match} onBack={reset} result={result} />
+          )}
           {!loading ? (
             !error ? (
               history.length > 0 ? (
-                history.map((item) => (
-                  <HistoryItem
-                    name={playerData?.name}
-                    key={item?.metadata.matchid}
-                    item={item}
-                  />
-                ))
+                <div className={`history_items ${match && "hide"}`}>
+                  {history.map((item) => (
+                    <HistoryItem
+                      name={playerData?.name}
+                      key={item?.metadata.matchid}
+                      item={item}
+                      onClick={() => setMatch(item)}
+                      shareResult={setResult}
+                    />
+                  ))}
+                </div>
               ) : (
                 <div className="error_history">
                   <p>Nothing here</p>
@@ -169,7 +184,13 @@ export default function PlayerHistory({ refresh }) {
   );
 }
 
-function FilterItem({ item, selected, setFilter, loading }) {
+function FilterItem({
+  item,
+  selected,
+  setFilter,
+  loading,
+  onChange,
+}) {
   return (
     <label
       className={
@@ -185,14 +206,17 @@ function FilterItem({ item, selected, setFilter, loading }) {
         value={item}
         checked={item === selected}
         disabled={loading}
-        onChange={(e) => setFilter(e)}
+        onChange={(e) => {
+          setFilter(e);
+          onChange();
+        }}
       />{" "}
       <p>{item}</p>
     </label>
   );
 }
 
-function HistoryItem({ item, name }) {
+function HistoryItem({ item, name, onClick }) {
   const [agent, setAgent] = React.useState("");
   const [player, setPlayer] = React.useState({});
   const [result, setResult] = React.useState({});
@@ -270,7 +294,7 @@ function HistoryItem({ item, name }) {
   }, [player]);
 
   return (
-    <div className="history_item">
+    <div className="history_item" onClick={onClick}>
       <div className="match_agent">
         <img src={agent || ""} alt="agent" draggable={false} />
       </div>

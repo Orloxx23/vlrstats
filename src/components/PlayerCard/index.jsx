@@ -132,11 +132,10 @@ export default function PlayerCard({ action }) {
                 }
               >
                 <img src={playerData.image} alt="" draggable="false" />
-                
               </div>
               <div className="player_card_name">
-                  {loading ? "" : playerData?.name + "#" + playerData?.tag}
-                </div>
+                {loading ? "" : playerData?.name + "#" + playerData?.tag}
+              </div>
               <div className="player_card_info">
                 <div
                   className={

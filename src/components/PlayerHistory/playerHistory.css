@@ -17,6 +17,7 @@
   border-radius: 20px;
 }
 .player_history {
+  position: relative;
   width: calc(100% - 40px);
   height: calc(90% - 40px);
   display: flex;
@@ -28,12 +29,12 @@
   gap: 0;
 }
 
-.player_history::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 8px; /* Tamaño del scroll en vertical */
   height: 8px; /* Tamaño del scroll en horizontal */ /* Ocultar scroll */
 }
 
-.player_history::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: var(--text-2);
   border-radius: 4px;
 }
