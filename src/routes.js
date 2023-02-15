@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { MainLayout, SimpleLayout } from "./layouts";
-import { Account, Home, Login, Page404, Register, Settings } from "./pages";
+import { Account, Home, Login, Page404, Register, Settings, News } from "./pages";
 
 export default function Router() {
   const routes = useRoutes([
@@ -9,8 +9,9 @@ export default function Router() {
       element: <MainLayout />,
       children: [
         { element: <Home />, index: true },
+        { path: "news", element: <News /> },
         { path: "settings", element: <Settings /> },
-        { path: 'account', element: <Account /> },
+        // { path: 'account', element: <Account /> },
         //   { path: 'drivers', element: <UserPage /> },
         //   { path: 'config', element: <ConfigPage /> },
       ],

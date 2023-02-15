@@ -8,12 +8,12 @@ const menuData = [
     path: "/",
     icon: icon("home", "solid"),
   },
-/*{
-    title: "updates",
-    path: "/updates",
+  {
+    title: "news",
+    path: "/news",
     icon: icon("newspaper"),
   },
-  {
+  /*{
     title: "crosshairs",
     path: "/crosshairs",
     icon: icon("crosshairs"),
