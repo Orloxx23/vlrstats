@@ -96,4 +96,8 @@ a {
   .news-card {
     height: 500px;
   }
+
+  .news-card-loading {
+    height: 500px;
+  }
 }
