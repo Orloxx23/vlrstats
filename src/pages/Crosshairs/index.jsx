@@ -8,7 +8,6 @@ import {
   getDocs,
   limit,
   startAfter,
-  endBefore,
   orderBy,
   endAt,
 } from "firebase/firestore";
@@ -16,6 +15,7 @@ import { db } from "../../firebase";
 import { CrosshairCard } from "../../components";
 import AddCrosshair from "./AddCrosshair";
 import { AuthContext } from "../../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const sort = ["new", "popular", "favorites", "mine"];
 
@@ -153,75 +153,81 @@ export default function Crosshairs() {
   };
 
   return (
-    <div className="crosshairs-container">
-      <div className="crosshairs-menu">
-        <div className="crosshairs-menu-sort">
-          {sort.map((value) => (
-            <CrosshairsMenuSortItem
-              key={value}
-              label={value}
-              value={value}
-              selected={sortSelected}
-              setSelected={setSortSelected}
-              user={user}
-              loading={loading}
-            />
-          ))}
-        </div>
-        <div className="crosshairs-menu-controls">
-          <div className="crosshairs-menu-controls-pagination">
-            <div
-              className="crosshairs-menu-controls-pagination-control"
-              onClick={showPrevPage}
-              style={{
-                opacity: page === 1 ? 0.5 : 1,
-                cursor: page === 1 ? "default" : "pointer",
-              }}
-            >
-              <Icon icon="chevron-left" />
+    <>
+      <Helmet>
+        <title>Crosshairs | MyStats</title>
+      </Helmet>
+
+      <div className="crosshairs-container">
+        <div className="crosshairs-menu">
+          <div className="crosshairs-menu-sort">
+            {sort.map((value) => (
+              <CrosshairsMenuSortItem
+                key={value}
+                label={value}
+                value={value}
+                selected={sortSelected}
+                setSelected={setSortSelected}
+                user={user}
+                loading={loading}
+              />
+            ))}
+          </div>
+          <div className="crosshairs-menu-controls">
+            <div className="crosshairs-menu-controls-pagination">
+              <div
+                className="crosshairs-menu-controls-pagination-control"
+                onClick={showPrevPage}
+                style={{
+                  opacity: page === 1 ? 0.5 : 1,
+                  cursor: page === 1 ? "default" : "pointer",
+                }}
+              >
+                <Icon icon="chevron-left" />
+              </div>
+              <div
+                className="crosshairs-menu-controls-pagination-control"
+                onClick={showNextPage}
+                style={{
+                  opacity: page >= totalItems / 6 ? 0.5 : 1,
+                  cursor: page >= totalItems / 6 ? "default" : "pointer",
+                }}
+              >
+                <Icon icon="chevron-right" />
+              </div>
             </div>
             <div
-              className="crosshairs-menu-controls-pagination-control"
-              onClick={showNextPage}
-              style={{
-                opacity: page >= totalItems / 6 ? 0.5 : 1,
-                cursor: page >= totalItems / 6 ? "default" : "pointer",
-              }}
+              className={`crosshairs-menu-controls-add ${
+                showCrosshairInput ? "crosshairs-menu-controls-add-close" : ""
+              }`}
+              onClick={showInput}
             >
-              <Icon icon="chevron-right" />
+              <Icon icon="add" />
             </div>
           </div>
-          <div
-            className={`crosshairs-menu-controls-add ${
-              showCrosshairInput ? "crosshairs-menu-controls-add-close" : ""
-            }`}
-            onClick={showInput}
-          >
-            <Icon icon="add" />
-          </div>
+          <AddCrosshair
+            show={showCrosshairInput}
+            setShow={setShowCrosshairInput}
+          />
         </div>
-        <AddCrosshair
-          show={showCrosshairInput}
-          setShow={setShowCrosshairInput}
-        />
+        {loading ? (
+          onLoadingCards()
+        ) : list.length > 0 ? (
+          <div className="crosshairs-list">
+            {list.map((item) => (
+              <CrosshairCard
+                key={item.id}
+                item={item}
+                setLoading={setLoading}
+                loading={loading}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="crosshairs-list-empty">There is nothing to show</div>
+        )}
       </div>
-      {loading ? (
-        onLoadingCards()
-      ) : list.length > 0 ? (
-        <div className="crosshairs-list">
-          {list.map((item) => (
-            <CrosshairCard
-              key={item.id}
-              item={item}
-              setLoading={setLoading}
-              loading={loading}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="crosshairs-list-empty">There is nothing to show</div>
-      )}
-    </div>
+    </>
   );
 }
 
