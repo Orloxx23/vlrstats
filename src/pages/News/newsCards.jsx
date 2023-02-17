@@ -5,6 +5,7 @@ export default function NewsCard({ banner, title, url, loading }) {
     <a
       href={url}
       target="_blank"
+      rel="noreferrer"
       className={loading ? "news-card-loading" : "news-card"}
     >
       <img src={banner} alt="" />

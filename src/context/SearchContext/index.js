@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { baseApi } from "../../api";
+
+import React from "react";
+// import { baseApi } from "../../api";
 
 const SearchContext = React.createContext();
 

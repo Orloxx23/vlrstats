@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { MainLayout, SimpleLayout } from "./layouts";
 import {
-  Account,
+//  Account,
   Home,
   Login,
   Page404,
