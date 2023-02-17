@@ -13,12 +13,12 @@ const menuData = [
     path: "/news",
     icon: icon("newspaper"),
   },
-  /*{
+  {
     title: "crosshairs",
     path: "/crosshairs",
     icon: icon("crosshairs"),
   },
-  {
+  /*{
     title: "leaderboard",
     path: "/leaderboard",
     icon: icon("ranking-star"),

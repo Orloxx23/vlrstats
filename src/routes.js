@@ -1,6 +1,15 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { MainLayout, SimpleLayout } from "./layouts";
-import { Account, Home, Login, Page404, Register, Settings, News } from "./pages";
+import {
+  Account,
+  Home,
+  Login,
+  Page404,
+  Register,
+  Settings,
+  News,
+  Crosshairs,
+} from "./pages";
 
 export default function Router() {
   const routes = useRoutes([
@@ -11,19 +20,20 @@ export default function Router() {
         { element: <Home />, index: true },
         { path: "news", element: <News /> },
         { path: "settings", element: <Settings /> },
+        { path: "crosshairs", element: <Crosshairs /> },
         // { path: 'account', element: <Account /> },
         //   { path: 'drivers', element: <UserPage /> },
         //   { path: 'config', element: <ConfigPage /> },
       ],
     },
-    /*{
-      path: 'login',
+    {
+      path: "login",
       element: <Login />,
-    },*/
-    /*{
-      path: 'register',
+    },
+    {
+      path: "register",
       element: <Register />,
-    },*/
+    },
     {
       element: <SimpleLayout />,
       children: [

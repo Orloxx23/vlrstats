@@ -113,6 +113,7 @@ function AuthProvider({ children }) {
 
     if (docSnap.exists()) {
       localStorage.setItem("user", JSON.stringify(docSnap.data()));
+      setUser(docSnap.data());
       navigate("/", { replace: true });
     } else {
       console.log("No such document!");

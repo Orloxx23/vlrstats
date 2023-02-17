@@ -1,0 +1,117 @@
+.crosshair-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--other);
+  border-radius: 20px;
+  border: 2px solid var(--containers);
+  overflow: hidden;
+  min-width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-1);
+}
+
+.crosshair-card-loading {
+  position: relative;
+  width: 100%;
+  min-width: 33.33%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid var(--containers);
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    var(--background) 30%,
+    var(--containers) 38%,
+    var(--containers) 40%,
+    var(--background) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load89234 2s infinite;
+}
+
+.crosshair-card-loading .crosshair-card__info,
+.crosshair-card-loading .crosshair-card__image {
+  display: none;
+}
+
+.crosshair-card__image {
+  width: 100%;
+  height: 80%;
+}
+
+.crosshair-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  pointer-events: none;
+  user-select: none;
+  transition: .3s ease-in-out;
+}
+
+.crosshair-card__info {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: calc(100% - 40px);
+  height: 20%;
+  background: var(--containers);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.crosshair-card__info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.crosshair-card__info__name {
+  font-size: 1.2rem;
+  color: var(--text-1);
+}
+
+.crosshair-card__info-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.crosshair-card__info__copy {
+  cursor: pointer;
+}
+
+.crosshair-card__info__copy:hover {
+  transform: scale(1.1);
+}
+
+.crosshair-card__info__author span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+.crosshair-card__info__favs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+@media screen and (max-width: 968px) {
+  .crosshair-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--other);
+    max-width: 100%;
+  }
+}
