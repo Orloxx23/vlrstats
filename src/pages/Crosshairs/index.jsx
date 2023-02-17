@@ -35,9 +35,11 @@ export default function Crosshairs() {
 
   React.useEffect(() => {
     (async () => {
+      setLoading(true);
       const q = query({ ...sortToQuery() }, limit());
       const querySnapshot = await getDocs(q);
       setTotalItems(querySnapshot.size);
+      setLoading(false);
     })();
   }, [sortSelected]);
 
