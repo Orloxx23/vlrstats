@@ -128,24 +128,24 @@ function AuthProvider({ children }) {
         setUser(null);
         localStorage.removeItem("user");
         localStorage.removeItem("playerData");
-        changeTheme("default");
+        // changeTheme("default");
       })
       .catch((error) => {
         // An error happened.
       });
   };
 
- /* useEffect(() => {
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-
-        navigate("/", { replace: true });
+        // navigate("/", { replace: true });
       } else {
         // User is signed out
-        navigate("/login", { replace: true });
+        // navigate("/", { replace: true });
+        localStorage.removeItem("user");
       }
     });
-  }, []);*/
+  }, []);
 
   return (
     <AuthContext.Provider
