@@ -8,15 +8,48 @@ export default function News() {
   const [lastPatch, setLastPatch] = React.useState();
   const [otherNews, setOtherNews] = React.useState();
   const [loading, setLoading] = React.useState(true);
+  const [language, setLanguage] = React.useState("en-us");
 
   React.useEffect(() => {
-    fetch("https://api.henrikdev.xyz/valorant/v1/website/en-us")
+    const tempUser = JSON.parse(localStorage.getItem("user"));
+    const tempRegion = tempUser.region;
+    let tempLanguage = "";
+    switch (tempRegion) {
+      case "na":
+        tempLanguage = "en-us";
+        break;
+      case "eu":
+        tempLanguage = "en-gb";
+        break;
+      case "kr":
+        tempLanguage = "ko-kr";
+        break;
+      case "br":
+        tempLanguage = "pt-br";
+        break;
+      case "ap":
+        tempLanguage = "en-us";
+        break;
+      case "latam":
+        tempLanguage = "es-mx";
+        break;
+      default:
+        tempLanguage = "en-us";
+        break;
+    }
+    console.log(tempRegion);
+    console.log(tempLanguage);
+    setLanguage(tempLanguage);
+  }, []);
+
+  React.useEffect(() => {
+    fetch(`https://api.henrikdev.xyz/valorant/v1/website/${language}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.data);
         setLoading(false);
       });
-  }, []);
+  }, [language]);
 
   React.useEffect(() => {
     if (news.length > 0) {

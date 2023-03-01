@@ -28,7 +28,7 @@ function AuthProvider({ children }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        const newUser = { id: user.uid, email: user.email, username: username };
+        const newUser = { id: user.uid, email: user.email, username: username, region: "na" };
         if (saveUser(newUser)) {
           setUser(newUser);
           localStorage.setItem("user", JSON.stringify(newUser));
@@ -80,6 +80,7 @@ function AuthProvider({ children }) {
         const user = userCredential.user;
         setUser(user);
         getUser(user.uid);
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         const errorCode = err.code;
@@ -114,7 +115,6 @@ function AuthProvider({ children }) {
     if (docSnap.exists()) {
       localStorage.setItem("user", JSON.stringify(docSnap.data()));
       setUser(docSnap.data());
-      navigate("/", { replace: true });
     } else {
       console.log("No such document!");
     }
@@ -147,6 +147,12 @@ function AuthProvider({ children }) {
     });
   }, []);
 
+  useEffect(() => {
+    if(user){
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
@@ -156,6 +162,7 @@ function AuthProvider({ children }) {
         createAccount,
         login,
         logout,
+        getUser,
       }}
     >
       <ToastContainer />
