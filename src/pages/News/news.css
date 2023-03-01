@@ -61,6 +61,7 @@ a {
 
 .more-news-row {
   width: 100%;
+  min-height: auto;
   height: 100%;
   display: flex;
   gap: 10px;
@@ -91,6 +92,7 @@ a {
   .more-news-row {
     flex-direction: column;
     gap: 20px;
+    height: auto;
   }
 
   .news-card {
