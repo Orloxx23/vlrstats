@@ -11,6 +11,8 @@ export default function News() {
   const [language, setLanguage] = React.useState("en-us");
 
   React.useEffect(() => {
+    if (localStorage.getItem("user") === null) return;
+
     const tempUser = JSON.parse(localStorage.getItem("user"));
     const tempRegion = tempUser.region;
     let tempLanguage = "";
