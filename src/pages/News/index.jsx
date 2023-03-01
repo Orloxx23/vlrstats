@@ -11,8 +11,8 @@ export default function News() {
   const [language, setLanguage] = React.useState("en-us");
 
   React.useEffect(() => {
+    setLoading(true);
     if (localStorage.getItem("user") === null) return;
-
     const tempUser = JSON.parse(localStorage.getItem("user"));
     const tempRegion = tempUser.region;
     let tempLanguage = "";
@@ -39,19 +39,19 @@ export default function News() {
         tempLanguage = "en-us";
         break;
     }
-    console.log(tempRegion);
-    console.log(tempLanguage);
     setLanguage(tempLanguage);
-  }, []);
+    if (tempLanguage !== language) return;
+    getNews();
+  }, [language]);
 
-  React.useEffect(() => {
+  const getNews = async () => {
     fetch(`https://api.henrikdev.xyz/valorant/v1/website/${language}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.data);
         setLoading(false);
       });
-  }, [language]);
+  };
 
   React.useEffect(() => {
     if (news.length > 0) {
