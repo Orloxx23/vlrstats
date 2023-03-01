@@ -64,6 +64,7 @@ export default function PlayerCard({ action }) {
           tag: res.data.data.tag,
           image: res.data.data.card.small,
           cover: res.data.data.card.wide,
+          region: res.data.data.region,
         };
       })
       .catch((err) => {
