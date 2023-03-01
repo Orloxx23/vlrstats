@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Loader } from "../../components";
 import { AuthContext } from "../../context/AuthContext";
 import { Page404 } from "../";

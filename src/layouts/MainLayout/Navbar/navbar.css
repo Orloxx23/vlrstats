@@ -55,6 +55,8 @@
 
   .navbar__menu {
     flex-direction: row;
+    gap: 0;
+    /* overflow-x: scroll; */
   }
 
   .navbar__menu__item {
