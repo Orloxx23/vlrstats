@@ -340,7 +340,7 @@ function HistoryItem({ item, name, onClick }) {
             </div>
           </div>
           <div className="match_more_info_timeago">
-            <div>{moment(item?.metadata.game_start_patched).fromNow()}</div>
+            <div>{moment.unix(item?.metadata.game_start).fromNow()}</div>
           </div>
         </div>
       </div>
